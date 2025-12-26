@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: matthewwbuckley/astro-tinacms-site
+  branch: main
+
+# For local development - edit files directly
+local_backend: true
+
+media_folder: "src/assets"
+public_folder: "../../assets"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { name: "title", label: "Title", widget: "string", required: true }
+      - { name: "description", label: "Description", widget: "string", required: true }
+      - { name: "pubDate", label: "Publication Date", widget: "datetime", format: "MMM DD YYYY", required: true }
+      - { name: "updatedDate", label: "Updated Date", widget: "datetime", format: "MMM DD YYYY", required: false }
+      - { name: "heroImage", label: "Hero Image", widget: "image", required: false }
+      - { name: "body", label: "Body", widget: "markdown" }
